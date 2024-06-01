@@ -25,7 +25,7 @@ const Dashboard = () => {
         </div>
         <div className="metric dashboard-metric-2">
           <h3>Operational</h3>
-          <p>{assets?.data?.length - ticket?.data?.length}</p>
+          <p>{assets?.data?.length - ticket?.data?.length || 0}</p>
         </div>
         <div className="metric dashboard-metric-3">
           <h3>Under Maintenance</h3>

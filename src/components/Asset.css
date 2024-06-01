@@ -1,0 +1,137 @@
+.asset-container-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+
+.asset-container .asset-container-header h1 {
+    display: inline-block;
+    position: relative;
+}
+
+.asset-container .asset-container-header h1::after {
+    content: "";
+    position: absolute;
+    top: 90%;
+    left: 0;
+    background-color: #000;
+    height: 3px;
+    width: 100%;
+}
+
+.asset-container .asset-container-header button {
+    /* padding: 16px 20px;
+    border-radius: 15px;
+    outline: none;
+    border: none;
+    font-weight: 600;
+    font-size: 16px;
+    background-color: #1F2937;
+    color: white; */
+    margin-bottom: 20px;
+    /* Add some space between the button and the table */
+}
+
+.add-new-button {
+    background-color: #0eb553;
+    /* Deep green color */
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 18px;
+    /* Increased font size */
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 8px;
+}
+
+.add-new-button:hover {
+    background-color: #36c571;
+    /* Slightly darker shade for hover effect */
+}
+
+.add-new-button:focus {
+    outline: none;
+}
+
+
+.asset-container-main {
+    margin-top: 50px;
+}
+
+/* Container styling */
+.asset-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+}
+
+/* Table header styling */
+.asset-table-head {
+    background-color: #007bff;
+    color: white;
+}
+
+.asset-table-header {
+    padding: 12px 15px;
+    /* text-align: left; */
+    font-weight: bold;
+    border-bottom: 2px solid #ddd;
+}
+
+/* Table body and rows styling */
+.asset-table-body .asset-table-row:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.asset-table-body .asset-table-row:hover {
+    background-color: #f1f1f1;
+}
+
+.asset-table-cell {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Button styling */
+.asset-table-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    margin: 0 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 4px;
+}
+
+.asset-table-button:hover {
+    background-color: #0056b3;
+}
+
+.asset-table-button:focus {
+    outline: none;
+}
+
+/* Specific button styling for edit and remove */
+.edit-button {
+    background-color: #28a745;
+}
+
+.edit-button:hover {
+    background-color: #218838;
+}
+
+.remove-button {
+    background-color: #dc3545;
+}
+
+.remove-button:hover {
+    background-color: #c82333;
+}
