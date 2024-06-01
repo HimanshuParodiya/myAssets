@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./Asset.css";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchAllAssets } from "../store/slice/assetSlice/getAllAssetSlice";
+import {
+  deleteAsset,
+  fetchAllAssets,
+} from "../store/slice/assetSlice/getAllAssetSlice";
 import { addAsset } from "../store/slice/assetSlice/addAssetSlice";
 
 const Asset = () => {
@@ -24,7 +27,6 @@ const Asset = () => {
     speed: "",
   });
   const { assets, isLoading } = useSelector((state) => state.allAssets);
-  console.log("asset page", assets.data);
 
   const handleAddClick = () => {
     setShowAddForm(true);
@@ -68,16 +70,28 @@ const Asset = () => {
       speed: formData.speed,
     };
 
-    dispatch(addAsset(assetData));
-    setShowAddForm(!showAddForm); //
+    dispatch(addAsset(assetData))
+      .then(() => dispatch(fetchAllAssets())) // Fetch all assets after adding
+      .then(() => setShowAddForm(false)); // Close the form after adding
   };
+
   const handleClose = () => {
-    // Logic to close the form, for example, setting showAddForm to false
     setShowAddForm(false);
   };
+
+  const handleDeleteAsset = (id) => {
+    const isConfirm = window.confirm(
+      "Are you sure you want to delete this asset?"
+    );
+    if (isConfirm) {
+      dispatch(deleteAsset(id)).then(() => dispatch(fetchAllAssets())); // Fetch all assets after deletion
+    }
+  };
+
   useEffect(() => {
     dispatch(fetchAllAssets());
   }, [dispatch]);
+
   if (isLoading) {
     return <h1>Loading .....</h1>;
   }
@@ -110,7 +124,10 @@ const Asset = () => {
                   <button className="asset-table-button edit-button">
                     Edit
                   </button>
-                  <button className="asset-table-button remove-button">
+                  <button
+                    className="asset-table-button remove-button"
+                    onClick={() => handleDeleteAsset(asset._id)}
+                  >
                     Remove
                   </button>
                 </td>

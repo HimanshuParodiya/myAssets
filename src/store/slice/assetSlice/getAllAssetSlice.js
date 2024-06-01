@@ -17,6 +17,25 @@ export const fetchAllAssets = createAsyncThunk(
     }
 );
 
+// Thunk function to delete an asset by ID
+export const deleteAsset = createAsyncThunk(
+    "assets/delete",
+    async (assetId, thunkAPI) => {
+        try {
+            const response = await fetch(`/api/v1/assets/delete-asset/${assetId}`, {
+                method: 'DELETE',
+            });
+            const data = await response.json();
+            if (!response.ok) {
+                return thunkAPI.rejectWithValue(data);
+            }
+            return data;
+        } catch (error) {
+            return thunkAPI.rejectWithValue(error.message);
+        }
+    }
+);
+
 const initialState = {
     assets: [],
     isLoading: false,
@@ -39,6 +58,20 @@ const getAllAssetSlice = createSlice({
                 state.assets = action.payload;
             })
             .addCase(fetchAllAssets.rejected, (state, action) => {
+                state.isLoading = false;
+                state.isError = true;
+                state.errorMessage = action.payload;
+            })
+            .addCase(deleteAsset.pending, (state) => {
+                state.isLoading = true;
+                state.isError = false;
+                state.errorMessage = "";
+            })
+            .addCase(deleteAsset.fulfilled, (state) => {
+                state.isLoading = false;
+                // Optionally, you can remove the deleted asset from the state
+            })
+            .addCase(deleteAsset.rejected, (state, action) => {
                 state.isLoading = false;
                 state.isError = true;
                 state.errorMessage = action.payload;
