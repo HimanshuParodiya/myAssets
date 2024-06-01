@@ -22,5 +22,13 @@ a {
 }
 
 .side-bar {
-  flex: 0.2;
+  flex: 0.18;
+}
+
+.main-page {
+  flex: 0.82;
+  background-color: #7D98A1;
+  height: 100vh;
+  padding: 20px;
+
 }
