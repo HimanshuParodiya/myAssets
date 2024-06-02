@@ -10,7 +10,8 @@ const store = configureStore({
         addAssets: addAssetsSlice,
         allTickets: getAllTicketSlice,
         raiseTicket: addTicketSlice
-    }
+    },
+    devTools: false
 })
 
 export default store

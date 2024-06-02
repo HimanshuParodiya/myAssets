@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   server: {
     proxy: {
-      "/api": "https://myassets.onrender.com" // where every find /api add "http://localhost:8000" before that so it will become "http://localhost:8000/api...."
+      "/api": "https://myassets-api.onrender.com" // where every find /api add "http://localhost:8000" before that so it will become "http://localhost:8000/api...."
       // using proxy also help use to tell our cross-origin that this our url to now we will not get an error of cross-origin
     }
   },
