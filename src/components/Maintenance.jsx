@@ -4,12 +4,13 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   deleteTicket,
   fetchAllTicket,
+  updateTicket,
 } from "../store/slice/ticketSlice/getAllTicketSlice";
 import { addTicket } from "../store/slice/ticketSlice/addTicketSlice";
-import { fetchAllAssets } from "../store/slice/assetSlice/getAllAssetSlice";
 
 const Maintenance = () => {
   const [showAddForm, setShowAddForm] = useState(false);
+  const [showEditForm, setShowEditForm] = useState(false);
 
   const dispatch = useDispatch();
   const { ticket, isLoading } = useSelector((state) => state.allTickets);
@@ -22,6 +23,10 @@ const Maintenance = () => {
   });
   const handleAddClick = () => {
     setShowAddForm(true);
+  };
+  const handleEditClick = (asset) => {
+    setShowEditForm(true);
+    setFormData(asset);
   };
 
   const handleChange = (e) => {
@@ -56,6 +61,7 @@ const Maintenance = () => {
   };
   const handleClose = () => {
     setShowAddForm(false);
+    setShowEditForm(false);
     setFormData({
       motorId: "",
       issueDescription: "",
@@ -75,6 +81,34 @@ const Maintenance = () => {
   useEffect(() => {
     dispatch(fetchAllTicket());
   }, [dispatch]);
+
+  const handleEditSubmit = (e) => {
+    e.preventDefault();
+
+    // Format dates
+    const formattedDateRaised = formData.dateRaised
+      .split("-")
+      .reverse()
+      .join("-");
+
+    const assetData = {
+      ...formData,
+      dateRaised: formattedDateRaised,
+    };
+
+    // console.log("Updating asset with data:", assetData); // Add this line to log the data being sent
+
+    dispatch(updateTicket({ assetId: formData._id, assetData })).then(() => {
+      dispatch(fetchAllTicket()); // Fetch all assets after updating
+      setShowEditForm(false);
+      setFormData({
+        motorId: "",
+        issueDescription: "",
+        dateRaised: "",
+        status: "",
+      }); // Reset form fields
+    });
+  };
 
   return (
     <div className="container tickets-container">
@@ -102,7 +136,12 @@ const Maintenance = () => {
               <td className="table-data">{ticket.dateRaised.split("T")[0]}</td>
               <td className="table-data">{ticket.status}</td>
               <td className="table-data">
-                <button className="action-button edit-button">Edit</button>
+                <button
+                  className="action-button edit-button"
+                  onClick={() => handleEditClick(ticket)}
+                >
+                  Edit
+                </button>
                 <button
                   className="action-button delete-button"
                   onClick={() => handleDeleteTicket(ticket._id)}
@@ -147,6 +186,65 @@ const Maintenance = () => {
                 id="dateRaised" // Corrected id to match the name used in the state
                 name="dateRaised" // Corrected name to match the state
                 value={formData.dateRaised} // Corrected value to match the state
+                onChange={handleChange}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="status">Status:</label>
+              <select
+                id="status"
+                name="status"
+                value={formData.status}
+                onChange={handleChange}
+                required
+              >
+                <option value="">Select Status</option>
+                <option value="Open">Open</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Resolved">Resolved</option>
+              </select>
+            </div>
+
+            <button type="submit" className="submit-button">
+              Submit
+            </button>
+          </form>
+        </div>
+      )}
+      {showEditForm && (
+        <div className="overlay">
+          <button className="close-button" onClick={handleClose}>
+            X
+          </button>
+          <form onSubmit={handleEditSubmit} className="edit-form">
+            {/* Edit form fields, same as add form fields */}
+            <div className="form-group">
+              <label htmlFor="motorId">Asset ID:</label>
+              <input
+                type="text"
+                id="motorId"
+                name="motorId"
+                value={formData.motorId}
+                onChange={handleChange}
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="issueDescription">Issue Description:</label>
+              <textarea
+                id="issueDescription"
+                name="issueDescription"
+                value={formData.issueDescription}
+                onChange={handleChange}
+              ></textarea>
+            </div>
+            <div className="form-group">
+              <label htmlFor="lastMaintenanceDate">Ticket Raised Date:</label>
+              <input
+                type="date"
+                id="dateRaised" // Corrected id to match the name used in the state
+                name="dateRaised" // Corrected name to match the state
+                value={formData.dateRaised} //
                 onChange={handleChange}
               />
             </div>

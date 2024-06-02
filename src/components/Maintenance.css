@@ -120,24 +120,56 @@
     /* Darker red on hover */
 }
 
-/* Responsive design */
-@media (max-width: 768px) {
-    .tickets-container {
-        padding: 10px;
-    }
+.edit-form {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
-    .tickets-heading {
-        font-size: 1.5em;
-    }
+.edit-form label {
+    display: block;
+    margin-bottom: 5px;
+}
 
-    .table-header,
-    .table-data {
-        padding: 8px;
-    }
+.edit-form input[type="text"],
+.edit-form textarea,
+.edit-form select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
 
-    .raise-ticket-button,
-    .action-button {
-        padding: 8px;
-        font-size: 0.9em;
-    }
+.edit-form button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.edit-form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #999;
+}
+
+.close-button:hover {
+    color: #666;
 }
