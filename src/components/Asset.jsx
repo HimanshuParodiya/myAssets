@@ -7,6 +7,7 @@ import {
   updateAsset,
 } from "../store/slice/assetSlice/getAllAssetSlice";
 import { addAsset } from "../store/slice/assetSlice/addAssetSlice";
+import { Link } from "react-router-dom";
 
 const Asset = () => {
   const dispatch = useDispatch();
@@ -107,7 +108,7 @@ const Asset = () => {
       lastMaintenanceDate: formattedLastMaintenanceDate,
     };
 
-    console.log("Updating asset with data:", assetData); // Add this line to log the data being sent
+    // console.log("Updating asset with data:", assetData); // Add this line to log the data being sent
 
     dispatch(updateAsset({ assetId: formData._id, assetData })).then(() => {
       dispatch(fetchAllAssets()); // Fetch all assets after updating
@@ -167,7 +168,7 @@ const Asset = () => {
   if (isLoading) {
     return <h1>Loading .....</h1>;
   }
-  console.log("formData", formData);
+  // console.log("formData", formData);
   return (
     <div className="container asset-container">
       <div className="asset-container-header">
@@ -205,6 +206,12 @@ const Asset = () => {
                   >
                     Remove
                   </button>
+                  <Link
+                    to={`/assets/${asset._id}`}
+                    className="asset-table-button details-button"
+                  >
+                    Details
+                  </Link>
                 </td>
               </tr>
             ))}

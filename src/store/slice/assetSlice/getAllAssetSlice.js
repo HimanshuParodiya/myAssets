@@ -47,7 +47,7 @@ export const updateAsset = createAsyncThunk(
                 body: JSON.stringify(assetData),
             });
             const data = await response.json();
-            console.log("res data", data);
+            // console.log("res data", data);
             if (!response.ok) {
                 return thunkAPI.rejectWithValue(data);
             }

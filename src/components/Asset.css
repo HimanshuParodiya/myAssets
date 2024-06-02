@@ -132,6 +132,18 @@
     background-color: #dc3545;
 }
 
+.details-button {
+    background-color: #ff5f5f;
+    /* Brighter shade of red */
+    transition: background-color 0.3s ease;
+}
+
+.details-button:hover {
+    background-color: #dc3545;
+    /* Darker shade of red on hover */
+}
+
+
 .remove-button:hover {
     background-color: #c82333;
 }

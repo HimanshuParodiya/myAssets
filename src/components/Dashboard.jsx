@@ -9,7 +9,7 @@ const Dashboard = () => {
   const { assets } = useSelector((state) => state.allAssets);
   // console.log();
   const { ticket } = useSelector((state) => state.allTickets);
-  console.log(ticket.data, "ticket");
+  // console.log(ticket.data, "ticket");
   useEffect(() => {
     dispatch(fetchAllAssets());
     dispatch(fetchAllTicket());

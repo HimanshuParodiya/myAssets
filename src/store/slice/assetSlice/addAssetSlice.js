@@ -7,7 +7,7 @@ export const addAsset = createAsyncThunk(
     async (assetData, { rejectWithValue }) => {
         try {
             const response = await axios.post('/api/v1/assets/add', assetData);
-            console.log("Res", response.data);
+            // console.log("Res", response.data);
             return response.data;
         } catch (error) {
             return rejectWithValue(error.response.data);
