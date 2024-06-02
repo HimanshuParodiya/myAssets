@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "./Maintenance.css";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchAllTicket } from "../store/slice/ticketSlice/getAllTicketSlice";
+import {
+  deleteTicket,
+  fetchAllTicket,
+} from "../store/slice/ticketSlice/getAllTicketSlice";
 import { addTicket } from "../store/slice/ticketSlice/addTicketSlice";
+import { fetchAllAssets } from "../store/slice/assetSlice/getAllAssetSlice";
 
 const Maintenance = () => {
   const [showAddForm, setShowAddForm] = useState(false);
@@ -59,6 +63,15 @@ const Maintenance = () => {
       status: "",
     }); // Reset form fields
   };
+
+  const handleDeleteTicket = (id) => {
+    const isConfirm = window.confirm(
+      "Are you sure you want to delete this asset?"
+    );
+    if (isConfirm) {
+      dispatch(deleteTicket(id)).then(() => dispatch(fetchAllTicket())); // Fetch all assets after deletion
+    }
+  };
   useEffect(() => {
     dispatch(fetchAllTicket());
   }, [dispatch]);
@@ -90,7 +103,12 @@ const Maintenance = () => {
               <td className="table-data">{ticket.status}</td>
               <td className="table-data">
                 <button className="action-button edit-button">Edit</button>
-                <button className="action-button delete-button">Delete</button>
+                <button
+                  className="action-button delete-button"
+                  onClick={() => handleDeleteTicket(ticket._id)}
+                >
+                  Delete
+                </button>
               </td>
             </tr>
           ))}
