@@ -8,7 +8,7 @@ export const addTicket = createAsyncThunk(
     async (ticketData, { rejectWithValue }) => {
         try {
             // console.log("ticketData", ticketData);
-            const response = await axios.post('/api/v1/ticket/raise', ticketData);
+            const response = await axios.post('https://myassets-api.onrender.com/api/v1/ticket/raise', ticketData);
             // console.log("response.data", response.data);
             return response.data; // Assuming response.data is serializable
         } catch (error) {
