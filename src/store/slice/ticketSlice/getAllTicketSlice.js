@@ -5,7 +5,7 @@ export const fetchAllTicket = createAsyncThunk(
     "ticket/fetchAll",
     async (_, thunkAPI) => {
         try {
-            const response = await fetch("https://myassets-api.onrender.com/api/v1/ticket/all-tickets");
+            const response = await fetch("/api/v1/ticket/all-tickets");
             const data = await response.json();
             if (!response.ok) {
                 return thunkAPI.rejectWithValue(data);
@@ -23,7 +23,7 @@ export const deleteTicket = createAsyncThunk(
     "ticket/delete",
     async (assetId, thunkAPI) => {
         try {
-            const response = await fetch(`https://myassets-api.onrender.com/api/v1/ticket/delete-ticket/${assetId}`, {
+            const response = await fetch(`/api/v1/ticket/delete-ticket/${assetId}`, {
                 method: 'DELETE',
             });
             const data = await response.json();
@@ -44,7 +44,7 @@ export const updateTicket = createAsyncThunk(
             // console.log("assetID", assetId);
             // console.log("assetData", assetData);
 
-            const response = await fetch(`https://myassets-api.onrender.com/api/v1/ticket/update-ticket/${assetId}`, {
+            const response = await fetch(`/api/v1/ticket/update-ticket/${assetId}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',

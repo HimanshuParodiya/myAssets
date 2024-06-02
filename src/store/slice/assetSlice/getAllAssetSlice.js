@@ -5,7 +5,7 @@ export const fetchAllAssets = createAsyncThunk(
     "assets/fetchAll",
     async (_, thunkAPI) => {
         try {
-            const response = await fetch("https://myassets-api.onrender.com/api/v1/assets/all-assets");
+            const response = await fetch("/api/v1/assets/all-assets");
             const data = await response.json();
             if (!response.ok) {
                 return thunkAPI.rejectWithValue(data);
@@ -22,7 +22,7 @@ export const deleteAsset = createAsyncThunk(
     "assets/delete",
     async (assetId, thunkAPI) => {
         try {
-            const response = await fetch(`https://myassets-api.onrender.com/api/v1/assets/delete-asset/${assetId}`, {
+            const response = await fetch(`/api/v1/assets/delete-asset/${assetId}`, {
                 method: 'DELETE',
             });
             const data = await response.json();
@@ -39,7 +39,7 @@ export const updateAsset = createAsyncThunk(
     "assets/update",
     async ({ assetId, assetData }, thunkAPI) => {
         try {
-            const response = await fetch(`https://myassets-api.onrender.com/api/v1/assets/update-details/${assetId}`, {
+            const response = await fetch(`/api/v1/assets/update-details/${assetId}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',

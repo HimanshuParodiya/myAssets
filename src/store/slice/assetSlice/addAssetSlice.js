@@ -6,7 +6,7 @@ export const addAsset = createAsyncThunk(
     'assets/addAsset',
     async (assetData, { rejectWithValue }) => {
         try {
-            const response = await axios.post('https://myassets-api.onrender.com/api/v1/assets/add', assetData);
+            const response = await axios.post('/api/v1/assets/add', assetData);
             // console.log("Res", response.data);
             return response.data;
         } catch (error) {
