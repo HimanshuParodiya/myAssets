@@ -5,6 +5,12 @@
     position: relative;
 }
 
+.nav-heading {
+    margin-top: 50px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
 .hamburger-icon {
     position: absolute;
     top: 30px;
@@ -35,7 +41,7 @@
 }
 
 .nav-menus {
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 .nav-menu-ul {

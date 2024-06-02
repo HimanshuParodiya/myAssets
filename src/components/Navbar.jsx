@@ -5,6 +5,7 @@ import { Link, NavLink } from "react-router-dom";
 const Navbar = () => {
   return (
     <div className="container nav-container">
+      <h1 className="nav-heading">MyAssets</h1>
       <div className="hamburger-icon">
         <span className="hamburger-icon-bar"></span>
         <span className="hamburger-icon-bar"></span>
