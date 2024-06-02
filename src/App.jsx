@@ -5,6 +5,7 @@ import "./App.css";
 import Dashboard from "./components/Dashboard";
 import Asset from "./components/Asset";
 import AssetDetails from "./components/AssetDetails";
+import Maintenance from "./components/Maintenance";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
             <Route path="/" element={<Dashboard />} />
             <Route path="/assets" element={<Asset />} />
             <Route path="/assets/:id" element={<AssetDetails />} />
+            <Route path="/maintenance" element={<Maintenance />} />
           </Routes>
         </div>
       </Router>
