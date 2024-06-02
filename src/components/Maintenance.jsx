@@ -216,54 +216,55 @@ const Maintenance = () => {
           <button className="close-button" onClick={handleClose}>
             X
           </button>
-          <form onSubmit={handleEditSubmit} className="edit-form">
-            {/* Edit form fields, same as add form fields */}
-            <div className="form-group">
-              <label htmlFor="motorId">Asset ID:</label>
-              <input
-                type="text"
-                id="motorId"
-                name="motorId"
-                value={formData.motorId}
-                onChange={handleChange}
-              />
+          <form onSubmit={handleEditSubmit} className="edit-form-ticket">
+            <div className="form-row">
+              <div className="form-group">
+                <label htmlFor="motorId">Asset ID:</label>
+                <input
+                  type="text"
+                  id="motorId"
+                  name="motorId"
+                  value={formData.motorId}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="issueDescription">Issue Description:</label>
+                <textarea
+                  id="issueDescription"
+                  name="issueDescription"
+                  value={formData.issueDescription}
+                  onChange={handleChange}
+                ></textarea>
+              </div>
             </div>
-
-            <div className="form-group">
-              <label htmlFor="issueDescription">Issue Description:</label>
-              <textarea
-                id="issueDescription"
-                name="issueDescription"
-                value={formData.issueDescription}
-                onChange={handleChange}
-              ></textarea>
+            <div className="form-row">
+              <div className="form-group">
+                <label htmlFor="dateRaised">Ticket Raised Date:</label>
+                <input
+                  type="date"
+                  id="dateRaised"
+                  name="dateRaised"
+                  value={formData.dateRaised.split("T")[0]}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="status">Status:</label>
+                <select
+                  id="status"
+                  name="status"
+                  value={formData.status}
+                  onChange={handleChange}
+                  required
+                >
+                  <option value="">Select Status</option>
+                  <option value="Open">Open</option>
+                  <option value="In Progress">In Progress</option>
+                  <option value="Resolved">Resolved</option>
+                </select>
+              </div>
             </div>
-            <div className="form-group">
-              <label htmlFor="lastMaintenanceDate">Ticket Raised Date:</label>
-              <input
-                type="date"
-                id="dateRaised" // Corrected id to match the name used in the state
-                name="dateRaised" // Corrected name to match the state
-                value={formData.dateRaised} //
-                onChange={handleChange}
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="status">Status:</label>
-              <select
-                id="status"
-                name="status"
-                value={formData.status}
-                onChange={handleChange}
-                required
-              >
-                <option value="">Select Status</option>
-                <option value="Open">Open</option>
-                <option value="In Progress">In Progress</option>
-                <option value="Resolved">Resolved</option>
-              </select>
-            </div>
-
             <button type="submit" className="submit-button">
               Submit
             </button>

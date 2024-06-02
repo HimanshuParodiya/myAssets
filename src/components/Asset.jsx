@@ -381,7 +381,7 @@ const Asset = () => {
             <button className="close-button" onClick={handleClose}>
               X
             </button>
-            <form onSubmit={handleEditSubmit} className="edit-form">
+            <form onSubmit={handleEditSubmit} className="edit-form-asset">
               {/* Edit form fields, same as add form fields */}
               <div className="form-group">
                 <label htmlFor="motorId">Motor ID:</label>
