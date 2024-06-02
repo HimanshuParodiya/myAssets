@@ -1,32 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Navbar.css";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleHamburger = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
-    <div className="container nav-container">
-      <h1 className="nav-heading">MyAssets</h1>
-      <div className="hamburger-icon">
+    <div className={`nav-container ${isOpen ? "open" : ""}`}>
+      <div className="hamburger-icon" onClick={handleHamburger}>
         <span className="hamburger-icon-bar"></span>
         <span className="hamburger-icon-bar"></span>
         <span className="hamburger-icon-bar"></span>
       </div>
-      <div className="nav-menus">
+      <h1 className="nav-heading">MyAssets</h1>
+      <div className={`nav-menus ${isOpen ? "show" : ""}`}>
         <ul className="nav-menu-ul">
           <li className="nav-menu-li">
-            <Link className="" to={"/"}>
-              Dashboard
-            </Link>
+            <Link to="/">Dashboard</Link>
           </li>
           <li className="nav-menu-li">
-            <Link className="" to={"/assets"}>
-              Assets
-            </Link>
+            <Link to="/assets">Assets</Link>
           </li>
           <li className="nav-menu-li">
-            <Link className="" to={"/maintenance"}>
-              Maintenance
-            </Link>
+            <Link to="/maintenance">Maintenance</Link>
           </li>
         </ul>
       </div>
