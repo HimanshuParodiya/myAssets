@@ -6,7 +6,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:8000', // Replace with your API server URL
+        target: 'https://myassets-api.onrender.com', // Replace with your API server URL
         changeOrigin: true,
       },
     },
