@@ -1,10 +1,9 @@
+/* Base Styles */
 .asset-container-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
 }
-
 
 .asset-container .asset-container-header h1 {
     display: inline-block;
@@ -22,26 +21,15 @@
 }
 
 .asset-container .asset-container-header button {
-    /* padding: 16px 20px;
-    border-radius: 15px;
-    outline: none;
-    border: none;
-    font-weight: 600;
-    font-size: 16px;
-    background-color: #1F2937;
-    color: white; */
     margin-bottom: 20px;
-    /* Add some space between the button and the table */
 }
 
 .add-new-button {
     background-color: #0eb553;
-    /* Deep green color */
     color: white;
     border: none;
     padding: 12px 24px;
     font-size: 18px;
-    /* Increased font size */
     cursor: pointer;
     transition: background-color 0.3s;
     border-radius: 8px;
@@ -49,19 +37,16 @@
 
 .add-new-button:hover {
     background-color: #36c571;
-    /* Slightly darker shade for hover effect */
 }
 
 .add-new-button:focus {
     outline: none;
 }
 
-
 .asset-container-main {
     margin-top: 50px;
 }
 
-/* Container styling */
 .asset-table {
     width: 100%;
     border-collapse: collapse;
@@ -71,7 +56,6 @@
     border: 1px solid #ddd;
 }
 
-/* Table header styling */
 .asset-table-head {
     background-color: #007bff;
     color: white;
@@ -79,12 +63,10 @@
 
 .asset-table-header {
     padding: 12px 15px;
-    /* text-align: left; */
     font-weight: bold;
     border-bottom: 2px solid #ddd;
 }
 
-/* Table body and rows styling */
 .asset-table-body .asset-table-row:nth-child(even) {
     background-color: #f9f9f9;
 }
@@ -99,7 +81,6 @@
     border-bottom: 1px solid #ddd;
 }
 
-/* Button styling */
 .asset-table-button {
     background-color: #007bff;
     color: white;
@@ -119,7 +100,6 @@
     outline: none;
 }
 
-/* Specific button styling for edit and remove */
 .edit-button {
     background-color: #28a745;
 }
@@ -134,21 +114,17 @@
 
 .details-button {
     background-color: #ff5f5f;
-    /* Brighter shade of red */
     transition: background-color 0.3s ease;
 }
 
 .details-button:hover {
     background-color: #dc3545;
-    /* Darker shade of red on hover */
 }
-
 
 .remove-button:hover {
     background-color: #c82333;
 }
 
-/* Asset.css */
 .overlay {
     position: fixed;
     top: 0;
@@ -225,4 +201,64 @@ textarea {
 
 .submit-button:hover {
     background: #0056b3;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .asset-container-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .asset-container .asset-container-header button {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .asset-table-header,
+    .asset-table-cell {
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+
+    .add-form {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .add-new-button {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    .submit-button {
+        grid-column: span 2;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .asset-container-header h1 {
+        font-size: 24px;
+    }
+
+    .asset-table-header,
+    .asset-table-cell {
+        font-size: 12px;
+    }
+
+    .add-form {
+        padding: 10px;
+    }
+
+    .add-new-button {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .submit-button {
+        font-size: 14px;
+        padding: 8px;
+    }
 }

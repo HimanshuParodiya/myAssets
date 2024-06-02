@@ -1,3 +1,6 @@
+/* Dashboard.css */
+
+/* Base Styles */
 .dashboard-container h1 {
     display: inline-block;
     position: relative;
@@ -18,6 +21,8 @@
     justify-content: space-between;
     align-items: center;
     margin-top: 20px;
+    flex-wrap: wrap;
+    /* Allow wrapping of items on smaller screens */
 }
 
 .metric {
@@ -39,5 +44,70 @@
 
 .metric p {
     font-size: 18px;
+}
 
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .dashboard-metrics {
+        flex-direction: column;
+        /* Stack metrics vertically on smaller screens */
+        align-items: stretch;
+    }
+
+    .metric {
+        width: 100%;
+        /* Take full width on smaller screens */
+        margin-bottom: 20px;
+        /* Adjust margin for better spacing */
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-container h1 {
+        font-size: 24px;
+        /* Adjust title size */
+    }
+
+    .metric {
+        height: auto;
+        /* Allow height to adjust based on content */
+        padding: 20px;
+        /* Add padding for better spacing */
+    }
+
+    .metric h3 {
+        font-size: 18px;
+        /* Adjust heading size */
+        margin-bottom: 20px;
+        /* Adjust margin */
+    }
+
+    .metric p {
+        font-size: 16px;
+        /* Adjust paragraph size */
+    }
+}
+
+@media (max-width: 480px) {
+    .dashboard-container h1 {
+        font-size: 20px;
+        /* Further adjust title size */
+    }
+
+    .metric {
+        padding: 15px;
+        /* Add more padding for mobile devices */
+    }
+
+    .metric h3 {
+        font-size: 16px;
+        /* Further adjust heading size */
+        margin-bottom: 15px;
+        /* Further adjust margin */
+    }
+
+    .metric p {
+        font-size: 14px;
+        /* Further adjust paragraph size */
+    }
 }

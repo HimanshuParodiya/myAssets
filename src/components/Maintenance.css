@@ -1,31 +1,27 @@
-/* Container for the entire component */
+/* tickets.css */
+
+/* Base Styles */
 .tickets-container {
     padding: 20px;
     background-color: #1e293b;
-    /* Dark background color for a modern look */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 1200px;
     margin: 20px auto;
 }
 
-/* Heading styling */
 .tickets-heading {
     text-align: center;
     margin-bottom: 20px;
     color: #ffffff;
-    /* White color for heading text */
 }
 
-/* Button styling */
 .raise-ticket-button {
     display: block;
     margin: 10px auto 20px auto;
     padding: 10px 20px;
     background-color: #3b82f6;
-    /* Blue background color */
     color: #ffffff;
-    /* White text color */
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -35,49 +31,38 @@
 
 .raise-ticket-button:hover {
     background-color: #2563eb;
-    /* Darker blue on hover */
 }
 
-/* Table styling */
 .tickets-table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
     color: #ffffff;
-    /* White text color for table */
 }
 
 .table-header {
     border: 1px solid #4b5563;
-    /* Gray border color */
     padding: 10px;
     text-align: left;
     background-color: #111827;
-    /* Very dark background for header */
     color: #ffffff;
-    /* White text color */
 }
 
 .table-row:nth-child(even) {
     background-color: #374151;
-    /* Darker gray for even rows */
 }
 
 .table-data {
     border: 1px solid #4b5563;
-    /* Gray border color */
     padding: 10px;
     text-align: left;
 }
 
-/* Button group styling within table cells */
 .action-button {
     margin-right: 5px;
     padding: 5px 10px;
     background-color: #3b82f6;
-    /* Blue background color */
     color: #ffffff;
-    /* White text color */
     border: none;
     border-radius: 3px;
     cursor: pointer;
@@ -87,37 +72,30 @@
 
 .action-button:hover {
     background-color: #2563eb;
-    /* Darker blue on hover */
 }
 
 .edit-button {
     background-color: #10b981;
-    /* Green background color */
 }
 
 .edit-button:hover {
     background-color: #059669;
-    /* Darker green on hover */
 }
 
 .update-button {
     background-color: #f59e0b;
-    /* Yellow background color */
 }
 
 .update-button:hover {
     background-color: #d97706;
-    /* Darker yellow on hover */
 }
 
 .delete-button {
     background-color: #ef4444;
-    /* Red background color */
 }
 
 .delete-button:hover {
     background-color: #dc2626;
-    /* Darker red on hover */
 }
 
 .edit-form {
@@ -172,4 +150,100 @@
 
 .close-button:hover {
     color: #666;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .tickets-container {
+        padding: 15px;
+    }
+
+    .tickets-table {
+        font-size: 14px;
+        /* Adjust font size for readability */
+    }
+
+    .table-header,
+    .table-data {
+        padding: 8px;
+        /* Adjust padding for smaller screens */
+    }
+
+    .raise-ticket-button,
+    .action-button {
+        font-size: 14px;
+        /* Adjust font size for buttons */
+        padding: 8px 16px;
+        /* Adjust padding for buttons */
+    }
+}
+
+@media (max-width: 768px) {
+    .tickets-container {
+        padding: 10px;
+    }
+
+    .raise-ticket-button,
+    .action-button {
+        width: 100%;
+        /* Make buttons full width */
+        font-size: 14px;
+    }
+
+    .tickets-table {
+        font-size: 12px;
+        /* Further adjust font size */
+    }
+
+    .table-header,
+    .table-data {
+        padding: 6px;
+        /* Further adjust padding */
+    }
+}
+
+@media (max-width: 480px) {
+    .tickets-container {
+        padding: 8px;
+    }
+
+    .raise-ticket-button,
+    .action-button {
+        font-size: 12px;
+        /* Further adjust button font size */
+        padding: 6px 12px;
+        /* Further adjust button padding */
+    }
+
+    .tickets-table {
+        font-size: 10px;
+        /* Further adjust table font size */
+    }
+
+    .table-header,
+    .table-data {
+        padding: 4px;
+        /* Further adjust padding */
+    }
+
+    .edit-form {
+        width: 90%;
+        /* Adjust form width for smaller screens */
+        padding: 15px;
+        /* Adjust form padding */
+    }
+
+    .edit-form input[type="text"],
+    .edit-form textarea,
+    .edit-form select {
+        font-size: 14px;
+        /* Adjust input font size */
+    }
+
+    .edit-form button[type="submit"] {
+        font-size: 14px;
+        /* Adjust button font size */
+        padding: 8px 16px;
+        /* Adjust button padding */
+    }
 }
