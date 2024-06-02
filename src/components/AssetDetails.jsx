@@ -19,7 +19,7 @@ const AssetDetails = () => {
           throw new Error("Failed to fetch asset details");
         }
         const data = await response.json();
-        console.log(data);
+        // console.log(data);
         setAssetDetails(data);
       } catch (error) {
         console.error(error);

@@ -41,8 +41,8 @@ export const updateTicket = createAsyncThunk(
     "ticket/update",
     async ({ assetId, assetData }, thunkAPI) => {
         try {
-            console.log("assetID", assetId);
-            console.log("assetData", assetData);
+            // console.log("assetID", assetId);
+            // console.log("assetData", assetData);
 
             const response = await fetch(`/api/v1/ticket/update-ticket/${assetId}`, {
                 method: 'PATCH',

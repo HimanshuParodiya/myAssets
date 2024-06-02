@@ -14,7 +14,7 @@ const Maintenance = () => {
 
   const dispatch = useDispatch();
   const { ticket, isLoading } = useSelector((state) => state.allTickets);
-  console.log("ticket", ticket);
+  // console.log("ticket", ticket);
   const [formData, setFormData] = useState({
     motorId: "",
     issueDescription: "",

@@ -7,9 +7,9 @@ export const addTicket = createAsyncThunk(
     'tickets/addTicket',
     async (ticketData, { rejectWithValue }) => {
         try {
-            console.log("ticketData", ticketData);
+            // console.log("ticketData", ticketData);
             const response = await axios.post('/api/v1/ticket/raise', ticketData);
-            console.log("response.data", response.data);
+            // console.log("response.data", response.data);
             return response.data; // Assuming response.data is serializable
         } catch (error) {
             return rejectWithValue(error.response.data);
